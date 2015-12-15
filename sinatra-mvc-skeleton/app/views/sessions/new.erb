@@ -1,0 +1,13 @@
+<div class="user_form">
+  <h3>Log In</h3>
+  <form action = "/sessions" method = "post">
+    <p>username: <input type="text" name="username"/> </p>
+    <p>password: <input type="password" name="password"/></p>
+    <p><input class="submit-button" type="submit" value="submit"/></p>
+  </form>
+  <% if defined?(errors) %>
+    <% errors.each do |error| %>
+      <p><%= error %></p>
+    <% end %>
+  <% end %>
+</div>

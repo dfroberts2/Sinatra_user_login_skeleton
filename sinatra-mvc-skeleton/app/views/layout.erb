@@ -18,8 +18,32 @@
   <title></title>
 </head>
 <body>
-<div id="content">
-  <%= yield %>
-</div>
+  <main>
+    <nav>
+      <ul class="left_bar">
+        <li><a href="#"><h1>Website</h1></a></li>
+        <li><a href="#">Nav Item 1</a></li>
+        <li><a href="#">Nav Item 2</a></li>
+      </ul>
+      <ul class="right_bar">
+        <% if logged_in? %>
+          <li>Hello, <%=current_user.username%> |</li>
+          <li>
+            <form action="/sessions" method="post">
+              <input type="hidden" name="_method" value="delete">
+              <input id="logout" type="submit" value="logout">
+            </form>
+          </li>
+          </li>
+        <% else %>
+          <li><a href="/sessions/new">login</a></li>
+          <li><a href="/users/new">create user</a></li>
+        <% end %>
+      </ul>
+    </nav>
+    <div id="content">
+      <%= yield %>
+    </div>
+  </main>
 </body>
 </html>
