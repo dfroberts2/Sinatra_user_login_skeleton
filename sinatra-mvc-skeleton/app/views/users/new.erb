@@ -1,0 +1,16 @@
+<div class="user_form">
+  <h3>Create Account</h3>
+  <form action = "/users" method = "post">
+    <p>username: <input type="text" name="username"/> </p>
+    <p>password: <input type="password" name="password"/></p>
+    <p>confirm password: <input type="password" name="password_confirmation"/></p>
+    <p><input class="submit-button" type="submit" value="submit"/></p>
+  </form>
+  <% if defined?(errors) %>
+    <ul>
+      <% errors.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
